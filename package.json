@@ -1,0 +1,16 @@
+{
+  "name": "export-nideriji",
+  "version": "0.0.1",
+  "description": "Export nideriji data.",
+  "main": "index.js",
+  "repository": "https://github.com/YunYouJun/export-nideriji.git",
+  "author": "云游君 <me@yunyoujun.cn>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "dotenv": "^6.2.0"
+  }
+}
