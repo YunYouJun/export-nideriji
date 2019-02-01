@@ -13,6 +13,16 @@
 
 待完善
 
+```sh
+# install
+yarn
+
+# start
+yarn start
+```
+
+在 `.env.example` 中填写正确的邮箱和密码，并重命名为 `.env`
+
 ## NIDERIJI API
 
-...
+[你的日记 API DOC - Postman](https://documenter.getpostman.com/view/3326320/Rztmr8pE)

@@ -1,50 +1,60 @@
 // global
 require('dotenv').config()
+const fs = require('fs')
+const chalk = require('chalk')
+const axios = require('./lib/axios')
 
-const axios = require('axios')
-const querystring = require('querystring')
+const login = require('./lib/login')
+const diary = require('./lib/diary')
 
-console.log('Start exporting...')
-console.log(process.env.EMAIL)
-console.log(process.env.PASSWORD)
+global.$axios = axios
 
-// default config
-axios.defaults.baseURL = 'https://ohshenghuo.com/api'
+// console
+const log = console.log
+const info = chalk.blue
+const success = chalk.green
+const warning = chalk.orange
+const error = chalk.red
 
-// login
-const csrfmiddlewaretoken = 'ZcJkWtMdfyjBNKxp3ms0i8REkTJcSKw4'
+log(info('Start exporting...'))
 
-let loginForm = {
-  csrfmiddlewaretoken,
-  email: process.env.EMAIL,
-  password: process.env.PASSWORD
+let nideriji = []
+let total = 5
+let count = 0
+
+login()
+  .then(res => {
+    if (res) {
+      log(success('Login success.'))
+      loopGetPrevDiary(process.env.DIARY_ID, total)
+    } else {
+      log(error('Login false!'))
+    }
+  })
+
+function loopGetPrevDiary(id, total = 9999) {
+  diary.getDiaryByPrev(id)
+    .then(res => {
+      if (res.data.diary && count < total) {
+        count++
+        nideriji.push(res.data.diary)
+        log(success(`Get ${count} diary: ${res.data.diary.id}`))
+        loopGetPrevDiary(res.data.diary.id, total)
+      } else {
+        log(info('Stop getting diary.'))
+        log(info(`Convert ${count} diary into json file.`))
+        writeJson(nideriji)
+      }
+    })
+    .catch(err => {
+      console.log(err)
+      log(error('Get diary fail!'))
+    })
 }
 
-loginForm = querystring.stringify(loginForm, null, null, {
-  encodeURIComponent: function (val) {
-    return val
-  }
-})
-
-let token = ''
-
-axios.post('/login/', loginForm)
-  .then(res => {
-    console.log(res.data.token)
-    token = res.data.token
-    getDiaryById()
+function writeJson(data) {
+  fs.writeFile('./logs/nideriji.json', JSON.stringify(data), (err) => {
+    if (err) throw err
+    log(success('Export successfully!'))
   })
-  .catch(err => console.log(err))
-
-function getDiaryById(id) {
-  axios.defaults.headers = {
-    Cookie: 'csrftoken=' + csrfmiddlewaretoken + '; ' + 'token=' + token,
-    auth: 'token ' + token
-  }
-  
-  axios.get('/diary/8808906/')
-    .then(res => {
-      console.log(res.data)
-    })
-    .catch(err => console.log(err))
 }
