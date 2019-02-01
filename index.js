@@ -8,19 +8,20 @@ const utils = require('./lib/utils')
 
 global.$axios = axios
 
-
-
 log(info('Start exporting...'))
 
 let nideriji = []
-let total = 10
 let count = 0
 
 login()
   .then(res => {
     if (res) {
       log(success('Login success.'))
-      loopGetPrevDiary(process.env.DIARY_ID, total)
+      if (!process.env.TOTAL) {
+        loopGetPrevDiary(process.env.DIARY_ID)
+      } else {
+        loopGetPrevDiary(process.env.DIARY_ID, process.env.TOTAL)
+      }
     } else {
       log(error('Login false!'))
     }
