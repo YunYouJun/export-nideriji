@@ -1,25 +1,19 @@
 // global
 require('dotenv').config()
-const fs = require('fs')
-const chalk = require('chalk')
+const { log, info, success, warning, error} = require('./lib/chalk')
 const axios = require('./lib/axios')
-
 const login = require('./lib/login')
 const diary = require('./lib/diary')
+const utils = require('./lib/utils')
 
 global.$axios = axios
 
-// console
-const log = console.log
-const info = chalk.blue
-const success = chalk.green
-const warning = chalk.orange
-const error = chalk.red
+
 
 log(info('Start exporting...'))
 
 let nideriji = []
-let total = 5
+let total = 10
 let count = 0
 
 login()
@@ -43,18 +37,11 @@ function loopGetPrevDiary(id, total = 9999) {
       } else {
         log(info('Stop getting diary.'))
         log(info(`Convert ${count} diary into json file.`))
-        writeJson(nideriji)
+        utils.writeNiderijiJson(nideriji)
       }
     })
     .catch(err => {
       console.log(err)
       log(error('Get diary fail!'))
     })
-}
-
-function writeJson(data) {
-  fs.writeFile('./logs/nideriji.json', JSON.stringify(data), (err) => {
-    if (err) throw err
-    log(success('Export successfully!'))
-  })
 }
