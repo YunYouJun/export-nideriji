@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
-    "convert:1diary": "node lib/1diary.js"
+    "to:1diary": "node lib/1diary.js"
   },
   "dependencies": {
     "axios": "^0.18.0",

@@ -17,11 +17,14 @@ login()
   .then(res => {
     if (res) {
       log(success('Login success.'))
-      if (!process.env.TOTAL) {
-        loopGetPrevDiary(process.env.DIARY_ID)
-      } else {
-        loopGetPrevDiary(process.env.DIARY_ID, process.env.TOTAL)
-      }
+      diary.getLatestDiary()
+        .then(res => {
+          if (!process.env.TOTAL) {
+            loopGetPrevDiary(res.data.diary.id)
+          } else {
+            loopGetPrevDiary(res.data.diary.id, process.env.TOTAL)
+          }
+        })
     } else {
       log(error('Login false!'))
     }
