@@ -41,6 +41,8 @@ npm run to:1diary
 |PASSWORD|密码|-|
 |TOTAL|导出数量(不填或0代表全部导出)|-|
 
+所需时间几十秒到几分钟不等。
+
 ## NIDERIJI API
 
 [你的日记 API DOC - Postman](https://documenter.getpostman.com/view/3326320/Rztmr8pE)
