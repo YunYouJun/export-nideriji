@@ -43,6 +43,11 @@ npm run to:1diary
 
 所需时间几十秒到几分钟不等。
 
+### 导出至一本日记
+
+用转换格式后所得的 `source.json` 替换 `example` 文件夹内 `1diary_backup_all` 压缩文件内部的同名文件 `source.json`，
+再用该压缩文件作为导入即可。
+
 ## NIDERIJI API
 
 [你的日记 API DOC - Postman](https://documenter.getpostman.com/view/3326320/Rztmr8pE)
