@@ -1,8 +1,10 @@
 # export-nideriji
 
+[![Build Status](https://travis-ci.com/YunYouJun/export-nideriji.svg?branch=master)](https://travis-ci.com/YunYouJun/export-nideriji)
+
 导出 [你的日记](http://nideriji.com/) APP 日记数据
 
-> 应用抓包发现数据实际来源于 [Oh 生活](https://ohshenghuo.com/)
+> 你的日记数据来源于 [Oh 生活](https://ohshenghuo.com/)
 
 ## Format
 
