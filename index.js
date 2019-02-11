@@ -1,6 +1,6 @@
 // global
 require('dotenv').config()
-const { log, info, success, warning, error} = require('./lib/chalk')
+const { log, info, success, error} = require('./lib/chalk')
 const axios = require('./lib/axios')
 const login = require('./lib/login')
 const diary = require('./lib/diary')
@@ -16,7 +16,6 @@ let count = 0
 login()
   .then(res => {
     if (res) {
-      log(success('Login success.'))
       diary.getLatestDiary()
         .then(res => {
           if (!process.env.TOTAL) {
@@ -25,8 +24,6 @@ login()
             loopGetPrevDiary(res.data.diary.id, process.env.TOTAL)
           }
         })
-    } else {
-      log(error('Login false!'))
     }
   })
 

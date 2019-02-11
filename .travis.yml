@@ -17,3 +17,4 @@ install:
 script:
   - npm start
   - npm run to:1diary
+  - npm run import

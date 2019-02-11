@@ -6,6 +6,17 @@
 
 > 你的日记数据来源于 [Oh 生活](https://ohshenghuo.com/)
 
+## Function
+
+### 你的日记
+
+- 导出 `你的日记` 数据
+- 导入 `你的日记` 数据
+
+### Other
+
+- 转换成 `一本日记` 数据格式
+
 ## Format
 
 - 你的日记原始 JSON 格式
@@ -22,10 +33,15 @@
 npm install
 # yarn
 
-# start
+# export
 # 开始导出
 npm start
 # yarn start
+
+# import
+# 导入你的日记
+npm run import
+# yarn run import
 
 # convert to 1diary
 # 转为一本日记 JSON 格式
