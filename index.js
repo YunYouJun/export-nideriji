@@ -18,8 +18,9 @@ login()
     if (res) {
       diary.getLatestDiary()
         .then(res => {
-          nideriji.push(res.data.diary)
           count++
+          nideriji.push(res.data.diary)
+          log(success(`Get ${count} diary: ${res.data.diary.id}`))
           if (!process.env.TOTAL) {
             loopGetPrevDiary(res.data.diary.id)
           } else {
