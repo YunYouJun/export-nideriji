@@ -1,7 +1,5 @@
 # export-nideriji
 
-[![Build Status](https://travis-ci.com/YunYouJun/export-nideriji.svg?branch=master)](https://travis-ci.com/YunYouJun/export-nideriji)
-
 导出 [你的日记](http://nideriji.com/) APP 日记数据（你的日记数据来源于 [Oh 生活](https://ohshenghuo.com/)）
 
 > 因为「你的日记」开发不是很活跃，且经常出现无法连接等 BUG，而本身也未提供导出功能，所以我写了该工具用于迁移至其他日记软件。  
