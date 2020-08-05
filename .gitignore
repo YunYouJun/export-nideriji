@@ -1,3 +1,7 @@
+# custom
+.DS_Store
+*.lock
+
 # Logs
 logs
 *.log

@@ -1,6 +1,6 @@
 {
   "name": "export-nideriji",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Export nideriji data.",
   "main": "index.js",
   "repository": "https://github.com/YunYouJun/export-nideriji.git",
@@ -12,10 +12,10 @@
     "import": "node src/import.js"
   },
   "dependencies": {
-    "axios": "^0.19.0",
-    "chalk": "^3.0.0",
-    "dayjs": "^1.8.0",
+    "axios": "^0.19.2",
+    "chalk": "^4.1.0",
+    "dayjs": "^1.8.32",
     "dotenv": "^8.2.0",
-    "uuid": "^3.3.2"
+    "uuid": "^8.3.0"
   }
 }
