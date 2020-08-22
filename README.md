@@ -70,13 +70,16 @@ npm run import
 
 在 `.env.example` 中填写正确的邮箱和密码，并重命名为 `.env`
 
-| Parameter | Description                     | Default |
-| --------- | ------------------------------- | ------- |
-| EMAIL     | 邮箱                            | -       |
-| PASSWORD  | 密码                            | -       |
-| TOTAL     | 导出数量(不填或 0 代表全部导出) | -       |
+| Parameter             | Description                     | Default                          |
+| --------------------- | ------------------------------- | -------------------------------- |
+| CSRF_MIDDLEWARE_TOKEN | CSRF TOKEN 防止跨站点伪造请求   | YYCRw31cBrt3MW8cS6BbWsaESks1n0s1 |
+| EMAIL                 | 邮箱                            | -                                |
+| PASSWORD              | 密码                            | -                                |
+| TOTAL                 | 导出数量(不填或 0 代表全部导出) | -                                |
 
 所需时间几十秒到几分钟不等。
+
+> `CSRF_MIDDLEWARE_TOKEN` 可能会有所变动，你可以前往 <https://nideriji.cn/login/> F12 或在登陆窗口附近右键检查元素以查看 `csrfmiddlewaretoken` 的值。
 
 ### 导出至一本日记
 
