@@ -44,8 +44,7 @@ git clone https://github.com/YunYouJun/export-nideriji.git
 须安装 [Node.js](http://nodejs.cn/download/)
 
 ```sh
-# install
-# 安装依赖包
+# Install 安装依赖包
 npm install
 # yarn
 ```
@@ -53,13 +52,11 @@ npm install
 ### 命令
 
 ```sh
-# export
-# 导出你的日记
+# Export 导出你的日记
 npm start
 # yarn start
 
-# import
-# 导入你的日记
+# Import 导入你的日记
 npm run import
 # yarn run import
 ```
