@@ -12,10 +12,10 @@
     "import": "node src/import.js"
   },
   "dependencies": {
-    "axios": "^0.24.0",
+    "axios": "^0.26.1",
     "chalk": "^4.1.0",
-    "dayjs": "^1.8.32",
-    "dotenv": "^10.0.0",
+    "dayjs": "^1.10.8",
+    "dotenv": "^16.0.0",
     "uuid": "^8.3.0"
   }
 }
